@@ -1,0 +1,43 @@
+name: job-email-triage
+version: "1.0.0"
+description: >
+  An AI environment that trains agents to triage a job seeker's inbox.
+  Agents classify, prioritize, detect deadlines, and draft replies across
+  a realistic mix of recruiter emails, job alerts, application updates,
+  and promotional spam — mirroring the 80-150 emails/day a typical
+  active job seeker receives.
+author: job-email-triage-team
+tags:
+  - openenv
+  - email
+  - triage
+  - job-search
+  - nlp
+  - real-world
+entry_point: "env.environment:JobEmailTriageEnv"
+observation_type: "env.models:JobEmailObservation"
+action_type: "env.models:JobEmailAction"
+reward_type: "env.models:JobEmailReward"
+tasks:
+  - id: easy_triage
+    name: "Easy — Spam vs Legitimate"
+    description: >
+      Classify each email as either promotional/spam or a legitimate
+      job-related email, and assign a basic priority level.
+      Difficulty: Easy. Expected agent score: 0.80–1.0
+  - id: medium_triage
+    name: "Medium — Full Categorization and Priority"
+    description: >
+      Classify emails across 6 categories (job_match, recruiter_outreach,
+      application_update, job_alert_digest, promotional, deadline_alert),
+      assign priority, and choose the correct action.
+      Difficulty: Medium. Expected agent score: 0.50–0.75
+  - id: hard_triage
+    name: "Hard — Full Pipeline with Deadline Extraction and Reply Drafting"
+    description: >
+      Full triage pipeline. Agent must categorize, prioritize, extract
+      deadlines, match job descriptions against a candidate profile,
+      and draft professional replies for recruiter emails.
+      Difficulty: Hard. Expected agent score: 0.30–0.55
+max_steps: 15
+reward_range: [0.0, 1.0]
