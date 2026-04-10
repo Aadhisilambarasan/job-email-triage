@@ -1,4 +1,16 @@
-# 📬 Job Email Triage — OpenEnv Environment
+---
+title: Job Email Triage OpenEnv
+emoji: 📧
+colorFrom: blue
+colorTo: green
+sdk: docker
+sdk_version: "1"
+python_version: "3.10"
+app_port: 7860
+pinned: false
+---
+
+# Job Email Triage OpenEnv Environment
 
 > An AI environment that trains agents to handle the overwhelming inbox of an active job seeker.
 
